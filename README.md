@@ -1,1 +1,1 @@
-## next js news app :))
+## minimal next js news app :))
