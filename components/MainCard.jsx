@@ -21,7 +21,7 @@ const MainCard = ({ title, description, creator, imgURL, keywords, link }) => {
   };
 
   return (
-    <div className="max-w-4xl flex cursor-pointer pb-10 border-b">
+    <div className="max-w-4xl flex cursor-pointer py-10 first:pt-0 border-b ">
       {/* TEXT SECTION */}
       <div onClick={() => newsLink()} className="pr-4">
         {/* author */}
@@ -50,7 +50,6 @@ const MainCard = ({ title, description, creator, imgURL, keywords, link }) => {
       </div>
 
       {/* PICTURE SECTION */}
-
       <div className="flex items-center pl-4" onClick={() => imgLink()}>
         <div className="relative w-40 h-40 flex items-center">
           {imgURL !== null ? (
