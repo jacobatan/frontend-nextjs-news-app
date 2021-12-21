@@ -24,19 +24,19 @@ const Navbar = () => {
           {/* RIGHT SIDE */}
           <div className="icons flex space-x-3.5 items-center text-gray-500">
             <div>
-              <SearchIcon className="h-5 cursor-pointer" />
+              <SearchIcon className="h-5 cursor-not-allowed" />
             </div>
             <div>
-              <BookmarkIcon className="h-5 cursor-pointer" />
+              <BookmarkIcon className="h-5 cursor-not-allowed" />
             </div>
             <div>
-              <BellIcon className="h-5 cursor-pointer" />
+              <BellIcon className="h-5 cursor-not-allowed" />
             </div>
-            <button className="bg-white px-3 pt-0.5 pb-1 hover:shadow-lg rounded-full outline-gray-500 outline outline-2 text-black">
-              upgrade
+            <button className="bg-white px-3 pt-0.5 pb-1 hover:shadow-lg rounded-full outline-gray-500 outline outline-2 text-black cursor-not-allowed">
+              lorem ipsum
             </button>
             <div>
-              <UserCircleIcon className="h-7 cursor-pointer" />
+              <UserCircleIcon className="h-7 cursor-not-allowed" />
             </div>
           </div>
         </div>
