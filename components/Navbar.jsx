@@ -2,14 +2,19 @@ import React from "react";
 import { SearchIcon, UserCircleIcon } from "@heroicons/react/solid";
 import { BookmarkIcon, BellIcon } from "@heroicons/react/outline";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <nav className="bg-white shadow-md z-50">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between py-4">
-          {/* LEFT SIDE */}
-          <div className="logo items-center flex font-semibold text-3xl font-mono">
+          {/* LEFT SIDE / LOGO*/}
+          <div
+            className="logo items-center flex font-semibold text-3xl font-mono cursor-pointer"
+            onClick={() => router.push("/")}
+          >
             <div>
               <Image src="/img/icon.svg" width={40} height={40} />
             </div>
