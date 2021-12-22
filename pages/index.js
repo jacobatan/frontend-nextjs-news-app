@@ -24,7 +24,10 @@ export default function Home({ latestNews }) {
       <main className="flex max-w-6xl mx-auto">
         <section className="py-20 flex flex-col border-r pr-12 ">
           {news.map(
-            ({ title, description, creator, image_url, keywords, link }) => (
+            (
+              { title, description, creator, image_url, keywords, link },
+              index
+            ) => (
               <MainCard
                 title={title}
                 description={description}
@@ -32,6 +35,7 @@ export default function Home({ latestNews }) {
                 imgURL={image_url}
                 keywords={keywords}
                 link={link}
+                key={index}
               />
             )
           )}
