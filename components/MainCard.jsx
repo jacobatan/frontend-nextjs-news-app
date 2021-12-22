@@ -41,8 +41,8 @@ const MainCard = ({ title, description, creator, imgURL, keywords, link }) => {
 
         {/* buttons/category */}
         <div className="text-gray-600 text-sm pt-2 flex flex-wrap">
-          {keywords?.map((keyword) => (
-            <p className="px-1 pb-2">
+          {keywords?.map((keyword, index) => (
+            <p className="px-1 pb-2" key={index}>
               · {keyword.replace(",More", "").replace(",Cities", "")}
             </p>
           ))}

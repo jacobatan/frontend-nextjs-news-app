@@ -26,7 +26,10 @@ export default function business({ latestNews, topicParam }) {
         <section className="py-20 flex flex-col border-r pr-12 ">
           <Header category={topicParam} />
           {news.map(
-            ({ title, description, creator, image_url, keywords, link }) => (
+            (
+              { title, description, creator, image_url, keywords, link },
+              index
+            ) => (
               <MainCard
                 title={title}
                 description={description}
@@ -34,6 +37,7 @@ export default function business({ latestNews, topicParam }) {
                 imgURL={image_url}
                 keywords={keywords}
                 link={link}
+                key={index}
               />
             )
           )}
