@@ -1,1 +1,0 @@
-export default PostList = () => <h1>johannah</h1>;
