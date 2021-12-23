@@ -11,7 +11,7 @@ const SideHeader = ({ topics }) => {
         {topics.map((topic, index) => (
           <button
             className="sideBtn"
-            onClick={() => router.push(`/topics/${topic}`)}
+            onClick={() => router.push(`/${topic}`)}
             key={index}
           >
             {topic}
