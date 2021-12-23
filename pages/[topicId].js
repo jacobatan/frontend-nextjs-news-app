@@ -1,6 +1,6 @@
-import Header from "../../components/Header";
-import MainCard from "../../components/MainCard";
-import SideHeader from "../../components/SideHeader";
+import Header from "../components/Header";
+import MainCard from "../components/MainCard";
+import SideHeader from "../components/SideHeader";
 
 export default function business({ latestNews, topicParam }) {
   const news = latestNews.results;
