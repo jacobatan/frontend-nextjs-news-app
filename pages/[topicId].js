@@ -99,6 +99,9 @@ export async function getStaticPaths() {
       {
         params: { topicId: "world" },
       },
+      {
+        params: { topicId: "environment" },
+      },
     ],
     fallback: false,
   };
