@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { Skeleton } from "./Skeleton";
 
 const MainCard = ({ title, description, creator, imgURL, keywords, link }) => {
   const [altImg, setAltImg] = useState("null");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchMyAPI = async () => {
+      setIsLoading(true);
       let res = await fetch("https://dog.ceo/api/breeds/image/random");
       res = await res.json();
       setAltImg(res);
+      setIsLoading(false);
     };
     fetchMyAPI();
   }, []);
@@ -54,6 +58,8 @@ const MainCard = ({ title, description, creator, imgURL, keywords, link }) => {
         <div className="relative w-40 h-40 flex items-center">
           {imgURL !== null ? (
             <img src={imgURL} alt="" width="160" height="160" />
+          ) : isLoading ? (
+            <Skeleton />
           ) : (
             <img src={altImg.message} alt="" width="160" height="80" />
           )}
