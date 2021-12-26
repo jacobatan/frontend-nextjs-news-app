@@ -3,7 +3,7 @@ import React from "react";
 export const Skeleton = () => {
   return (
     <div className="w-40 h-40 bg-gray-300 rounded-md animate-pulse">
-      <h1></h1>
+      <div></div>
     </div>
   );
 };
