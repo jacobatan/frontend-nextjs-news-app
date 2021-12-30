@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
+import { useNewsSearch } from "../components/hooks/useNewsSearch";
 import MainCard from "../components/MainCard";
 import SideHeader from "../components/SideHeader";
 
@@ -20,6 +22,17 @@ export default function business({ latestNews, topicParam }) {
 
   topics = topics.filter((topic) => topic != topicParam);
 
+  const [query, setQuery] = useState("");
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+    console.log(e.target.value);
+    console.log("e.target");
+    setPageNumber(0);
+  };
+
+  useNewsSearch(query, pageNumber);
   return (
     <div>
       <main className="flex max-w-6xl mx-auto">
@@ -41,6 +54,7 @@ export default function business({ latestNews, topicParam }) {
               />
             )
           )}
+          <button onClick={handleSearch}>sus</button>
         </section>
 
         <section className="pt-20 pb-10 flex flex-col pl-12 w-2/5 max-h-1.5 sticky top-0">

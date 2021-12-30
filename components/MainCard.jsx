@@ -54,7 +54,16 @@ const MainCard = ({ title, description, creator, imgURL, keywords, link }) => {
       </div>
 
       {/* PICTURE SECTION */}
-      <div className="flex items-center pl-4" onClick={() => imgLink()}>
+
+      {imgURL && (
+        <div className="flex items-center pl-4" onClick={() => imgLink()}>
+          <div className="relative w-40 h-40 flex items-center">
+            <img src={imgURL} alt="" width="160" height="160" />
+          </div>
+        </div>
+      )}
+
+      {/* <div className="flex items-center pl-4" onClick={() => imgLink()}>
         <div className="relative w-40 h-40 flex items-center">
           {imgURL !== null ? (
             <img src={imgURL} alt="" width="160" height="160" />
@@ -64,7 +73,7 @@ const MainCard = ({ title, description, creator, imgURL, keywords, link }) => {
             <img src={altImg.message} alt="" width="160" height="80" />
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
