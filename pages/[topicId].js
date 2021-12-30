@@ -5,7 +5,8 @@ import MainCard from "../components/MainCard";
 import SideHeader from "../components/SideHeader";
 
 export default function business({ latestNews, topicParam }) {
-  const news = latestNews.results;
+  const [news, setNews] = useState(latestNews.results);
+
   let topics = [
     "business",
     "entertainment",
@@ -22,23 +23,30 @@ export default function business({ latestNews, topicParam }) {
 
   topics = topics.filter((topic) => topic != topicParam);
 
-  const [query, setQuery] = useState("");
-  const [pageNumber, setPageNumber] = useState(0);
+  const [page, setPage] = useState(0);
 
-  const handleSearch = (e) => {
-    setQuery(e.target.value);
-    console.log(e.target.value);
-    console.log("e.target");
-    setPageNumber(0);
+  useEffect(() => {
+    const fetchAPI = async () => {
+      let res = await fetch(
+        `https://newsdata.io/api/1/news?apikey=pub_29318cd2d47bff58927cc06650faa7501bdd&language=en&category=business&page=${page}`
+      );
+      res = await res.json();
+      setNews((news) => [...news, ...res.results]);
+      console.log(news);
+    };
+    fetchAPI();
+  }, [page]);
+
+  const handleClick = () => {
+    setPage(++page);
   };
 
-  useNewsSearch(query, pageNumber);
   return (
     <div>
       <main className="flex max-w-6xl mx-auto">
         <section className="py-20 flex flex-col border-r pr-12 ">
           <Header category={topicParam} />
-          {news.map(
+          {news?.map(
             (
               { title, description, creator, image_url, keywords, link },
               index
@@ -54,9 +62,8 @@ export default function business({ latestNews, topicParam }) {
               />
             )
           )}
-          <button onClick={handleSearch}>sus</button>
+          <button onClick={handleClick}>test</button>
         </section>
-
         <section className="pt-20 pb-10 flex flex-col pl-12 w-2/5 max-h-1.5 sticky top-0">
           <SideHeader topics={topics} />
         </section>
