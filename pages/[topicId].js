@@ -5,6 +5,8 @@ import MainCard from "../components/MainCard";
 import SideHeader from "../components/SideHeader";
 
 export default function business({ latestNews, topicParam }) {
+  // const [news, setNews] = useState(latestNews.results);
+  const news = latestNews.results;
   let topics = [
     "business",
     "entertainment",
@@ -20,25 +22,23 @@ export default function business({ latestNews, topicParam }) {
   ];
 
   topics = topics.filter((topic) => topic != topicParam);
-
-  const [news, setNews] = useState(latestNews.results);
-  const [page, setPage] = useState(0);
+  // const [page, setPage] = useState(0);
 
   const handleClick = () => {
     setPage(++page);
   };
 
-  useEffect(() => {
-    const fetchAPI = async () => {
-      let res = await fetch(
-        `https://newsdata.io/api/1/news?apikey=pub_29318cd2d47bff58927cc06650faa7501bdd&language=en&category=${topicParam}&page=${page}`
-      );
-      res = await res.json();
-      setNews((news) => [...news, ...res.results]);
-      console.log(news);
-    };
-    fetchAPI();
-  }, [page]);
+  // useEffect(() => {
+  //   const fetchAPI = async () => {
+  //     let res = await fetch(
+  //       `https://newsdata.io/api/1/news?apikey=pub_29318cd2d47bff58927cc06650faa7501bdd&language=en&category=${topicParam}&page=${page}`
+  //     );
+  //     res = await res.json();
+  //     setNews((news) => [...news, ...res.results]);
+  //     console.log(news);
+  //   };
+  //   fetchAPI();
+  // }, [page]);
 
   return (
     <div>
