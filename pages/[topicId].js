@@ -23,13 +23,13 @@ export default function business({ topicParam, latestNews }) {
   ];
 
   topics = topics.filter((topic) => topic != topicParam);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
 
-  const handleClick = () => {
-    setPage(++page);
-  };
+  // const handleClick = () => {
+  //   setPage(++page);
+  // };
 
-  const firstRender = useRef(false);
+  // const firstRender = useRef(false);
 
   // useEffect(() => {
   //   const fetchInital = async () => {
