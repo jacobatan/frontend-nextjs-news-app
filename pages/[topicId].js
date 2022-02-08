@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import { useNewsSearch } from "../components/hooks/useNewsSearch";
 import MainCard from "../components/MainCard";
 import SideHeader from "../components/SideHeader";
 
-export default function business({ latestNews, topicParam }) {
-  // const [news, setNews] = useState(latestNews.results);
+export default function business({ topicParam, latestNews }) {
+  console.log(latestNews);
+  // let [news, setNews] = useState([]);
   const news = latestNews.results;
   let topics = [
     "business",
@@ -22,11 +23,21 @@ export default function business({ latestNews, topicParam }) {
   ];
 
   topics = topics.filter((topic) => topic != topicParam);
-  // const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   const handleClick = () => {
     setPage(++page);
   };
+
+  const firstRender = useRef(false);
+
+  // useEffect(() => {
+  //   const fetchInital = async () => {
+  //     const resLatestNews = await fetch(
+  //       `https://newsdata.io/api/1/news?apikey=pub_29318cd2d47bff58927cc06650faa7501bdd&language=en&category=${topicParam}`
+  //     );
+  //   };
+  // }, []);
 
   // useEffect(() => {
   //   const fetchAPI = async () => {
@@ -35,9 +46,8 @@ export default function business({ latestNews, topicParam }) {
   //     );
   //     res = await res.json();
   //     setNews((news) => [...news, ...res.results]);
-  //     console.log(news);
   //   };
-  //   fetchAPI();
+  //   firstRender.current ? fetchAPI() : (firstRender.current = true);
   // }, [page]);
 
   return (
@@ -61,15 +71,15 @@ export default function business({ latestNews, topicParam }) {
               />
             )
           )}
-          <button
+          {/* <button
             onClick={() => {
               handleClick();
             }}
           >
             test
-          </button>
+          </button> */}
         </section>
-        <section className="pt-20 pb-10 flex flex-col pl-12 w-2/5 max-h-1.5 sticky top-0">
+        <section className="pt-20 pb-10 md:flex flex-col pl-12 w-2/5 max-h-1.5 sticky top-0 sm:hidden">
           <SideHeader topics={topics} />
         </section>
       </main>

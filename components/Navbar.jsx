@@ -18,7 +18,7 @@ const Navbar = () => {
             <div>
               <Image src="/img/icon.svg" width={40} height={40} />
             </div>
-            jacob
+            news
           </div>
 
           {/* RIGHT SIDE */}
@@ -33,7 +33,7 @@ const Navbar = () => {
               <BellIcon className="h-5 cursor-not-allowed" />
             </div>
             <button className="bg-white px-3 pt-0.5 pb-1 hover:shadow-lg rounded-full outline-gray-500 outline outline-2 text-black cursor-not-allowed">
-              lorem ipsum
+              premium
             </button>
             <div>
               <UserCircleIcon className="h-7 cursor-not-allowed" />

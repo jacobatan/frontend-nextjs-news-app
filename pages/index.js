@@ -22,7 +22,7 @@ export default function Home({ latestNews }) {
   return (
     <div>
       <main className="flex max-w-6xl mx-auto">
-        <section className="py-20 flex flex-col border-r pr-12 ">
+        <section className="py-20 flex flex-col md:border-r md:pr-12 md:pl-3 xl:pl-0 sm:pl-5 sm:pr-5">
           {news.map(
             (
               { title, description, creator, image_url, keywords, link },
@@ -41,7 +41,7 @@ export default function Home({ latestNews }) {
           )}
         </section>
 
-        <section className="pt-20 pb-10 flex flex-col pl-12 w-2/5 max-h-1.5 sticky top-0">
+        <section className="pt-20 pb-10 md:flex flex-col pl-12 w-2/5 max-h-1.5 sticky top-0 sm:hidden">
           <SideHeader topics={topics} />
         </section>
       </main>

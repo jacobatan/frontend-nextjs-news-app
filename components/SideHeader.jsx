@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const SideHeader = ({ topics }) => {
   const router = useRouter();
   return (
-    <div className="flex flex-col z-50 max-w-full">
+    <div className="md:flex flex-col z-50 max-w-full sm:hidden">
       <p className="text-3xl font-bold sticky pb-3">topics</p>
 
       <div className="flex text-center sticky max-w-full flex-wrap">
